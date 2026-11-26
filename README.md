@@ -146,4 +146,4 @@ Python 3.12 · pandas · scikit-learn (Pipeline, ColumnTransformer, StratifiedGr
 
 ## Author
 
-**Salman Khursheed**, CS undergraduate, BITS Pilani (Online) · [GitHub](https://github.com/Salman-Khursheed)
+**Salman Khursheed** [GitHub](https://github.com/Salman-Khursheed)
