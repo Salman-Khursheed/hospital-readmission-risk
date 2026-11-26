@@ -114,6 +114,12 @@ A patient is worth calling when `risk x 0.18 x $15,000 > $500`, i.e. **risk > 0.
 - **Old data.** The records are from 1999-2008 US hospitals, and care practices and coding have changed since.
 - **Explanations aren't causes.** Prior visits *mark* sicker patients; they don't cause readmission.
 
+## Project outcomes
+
+- Built a 30-day readmission model on **101,766 diabetic hospital encounters (71,518 patients)**, using a patient-grouped train/test split to prevent leakage. Gradient boosting reached **test ROC-AUC 0.678 and PR-AUC 0.237 (2.1x random)**, against a logistic regression baseline of 0.670 / 0.218.
+- Chose the decision threshold by cost instead of accuracy: at **0.18** (matching the 0.185 implied by the calibrated probabilities), the model flags **12.3%** of patients and catches **27.7%** of readmissions at **25.7%** precision, an estimated **~$23,700 net saving per 1,000 discharges** under stated assumptions, with a 9-scenario sensitivity analysis.
+- Explained the model with permutation importance and SHAP (prior inpatient visits and discharge destination dominate) and audited fairness by race, gender and age, finding a significant recall gap for patients aged 70+ (**24.4%** vs **36.1%** for under-50s).
+
 ## How to reproduce
 
 ```bash
